@@ -7,9 +7,19 @@
 
     <body>
         <?php
+            include('./DB.php');
+            include('./CreateTables.php');
+
+            $db = new DB();
+
             $pagina_de_login = "/login.php";
             $ultima_visita = null;
             $user_id = null;
+
+            $tableCheck =$db->query("SELECT name FROM sqlite_master WHERE name='usuarios'");
+            if ($tableCheck->fetchArray() === false){
+                CreateTables::run();        
+            }
 
             if(isset($_COOKIE["user_id"])){
                 $user_id = $_COOKIE["user_id"];
@@ -44,6 +54,9 @@
             <tr>
                 <td >
                     <input type="submit" value="Entrar">
+                </td>
+                <td >
+                    <a href="cadastro.php">Cadastrar-se</a>
                 </td>
             </tr>
         </table>
