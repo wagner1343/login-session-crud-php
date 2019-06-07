@@ -25,7 +25,7 @@
 
             
 
-            <form action="login.php" method="POST">
+        <form action="login.php" method="POST">
                 
         <table style="margin: auto; margin-bottom: 50px; border-spacing: 12px; background-color: gainsboro" border="0"> 
             <tr> <td colspan="6"> 
