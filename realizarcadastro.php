@@ -1,7 +1,7 @@
 <?php
     require('UsuarioDAO.php');
     require('Usuario.php');
-    require('DB.php');
+    require_once('DB.php');
 
     function validar() {
         return isset($_POST["usuario"]) && isset($_POST["senha"]) && isset($_POST["nome"]);
@@ -15,8 +15,8 @@
     $dao = new UsuarioDAO(new DB());
 
     $u->usuario = $_POST["usuario"];
-    $u->senha = isset($_POST["senha"]);
-    $u->nome = isset($_POST["nome"]);
+    $u->senha = $_POST["senha"];
+    $u->nome = $_POST["nome"];
     
     $u->idade = "";
     $u->email = "";
@@ -34,7 +34,7 @@
     try{
         $dao->inserir($u);
 
-        echo "Cadastro realizado com sucesso";
+        echo "Cadastro realizado com sucesso:";
     } 
     catch (Exception $e){
         echo "Erro durante o cadastro: " . $e;

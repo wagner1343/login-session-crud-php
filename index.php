@@ -7,7 +7,7 @@
 
     <body>
         <?php
-            include('./DB.php');
+            include_once('./DB.php');
             include('./CreateTables.php');
 
             $db = new DB();
