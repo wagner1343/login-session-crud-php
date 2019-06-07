@@ -1,6 +1,5 @@
 <?php
     class Usuario {
-        var $id;
         var $usuario;
         var $senha;
         var $nome;
